@@ -115,7 +115,8 @@ margin-top:10px;
 <!-- BRAZIL FIELDS -->
 <div id="brazilFields" style="display:none;">
 <input type="text" id="cpf" placeholder="CPF (000.000.000-00)">
-<input type="date" id="dob">
+<input type="date" id="dob" name="dob" required>
+<small>Tap to select your birth date</small>
 </div>
 
 <input type="text" id="cardname" placeholder="Cardholder Name">
@@ -137,7 +138,8 @@ Card Type: <span id="cardType">Unknown</span>
 </div>
 
 <script>
-
+const today = new Date().toISOString().split('T')[0];
+document.getElementById("dob").setAttribute("max", today);
 // 🌍 AUTO COUNTRY
 window.onload = function(){
 let lang = navigator.language || "";
